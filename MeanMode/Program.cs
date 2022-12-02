@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MeanMode
 {
@@ -17,13 +18,39 @@ namespace MeanMode
         // TODO
         private static double computeAverage(int[] array)
         {
-            return 0.0;
+            double average = 0;
+            foreach (var num in array)
+            {
+                average += num;
+            }
+            return average / array.Length;
         }
 
         // TODO
         private static double? computeMode(int[] array)
         {
-            return null;
+            var numCounts = new Dictionary<int, int>();
+            foreach (var num in array)
+            {
+                if (numCounts.ContainsKey(num))
+                {
+                    numCounts[num]++;
+                }
+                else
+                {
+                    numCounts.Add(num, 1);
+                }
+            }
+
+            KeyValuePair<int, int> mode = new KeyValuePair<int, int>();
+            foreach (var num in numCounts)
+            {
+                if (num.Value > mode.Value)
+                {
+                    mode = num;
+                }
+            }
+            return mode.Key;
         }
     }
 }
