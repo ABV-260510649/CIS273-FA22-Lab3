@@ -8,7 +8,6 @@ namespace TextualAnalysis
     public class TextualAnalysis
     {
         public static string stopWordFilePath = "../../../Data/stop-words.txt";
-
         public TextualAnalysis()
         {
         }

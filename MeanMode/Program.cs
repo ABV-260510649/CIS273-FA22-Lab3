@@ -7,7 +7,9 @@ namespace MeanMode
     {
         static void Main(string[] args)
         {
+            int[] numbers = { 0, 0, 0, 3, 3, 3, -3, -3, -3, };
 
+            Console.WriteLine( (MeanMode(numbers)));
         }
 
         public static bool MeanMode(int[] array)
@@ -45,11 +47,12 @@ namespace MeanMode
             KeyValuePair<int, int> mode = new KeyValuePair<int, int>();
             foreach (var num in numCounts)
             {
-                if (num.Value > mode.Value)
+                if (num.Value >= mode.Value)
                 {
                     mode = num;
                 }
             }
+
             return mode.Key;
         }
     }
